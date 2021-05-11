@@ -26,8 +26,9 @@ const getMatches = async (date) => {
     ".xpa-layout-matches__section.xpa-layout-matches__section--matchCardsList"
   ).each((a, element1) => {
     league = $(element1)
-      .find(".simple-match-cards-list__header span.screen-reader-only")
+      .find(".section-header .section-header__titles-container h2")
       .html();
+    //console.log(league);
     $(element1)
       .find(`li.simple-match-cards-list__match-card`)
       .each((i, element2) => {
@@ -115,9 +116,7 @@ const getMatchesTimes = ($, element) => {
         .find(`.simple-match-card__match-content time`)
         .html(),
       status: $(element)
-        .find(
-          `.simple-match-card__match-content span.title-8-regular.simple-match-card__info-message`
-        )
+        .find(`.simple-match-card__match-content time~span`)
         .html(),
     };
   }
